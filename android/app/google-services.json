@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "844604162281",
+    "project_id": "ahmadinstagram",
+    "storage_bucket": "ahmadinstagram.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:844604162281:android:291e1ae12d932edd27b078",
+        "android_client_info": {
+          "package_name": "com.example.instant_gram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "844604162281-o64ecs12g9rgsch4pnsjdcte5vkjmdjp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGw-UoPd842RsG1AZ0EbjLSHDip6VKAww"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "844604162281-o64ecs12g9rgsch4pnsjdcte5vkjmdjp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "844604162281-421vpilsttrag4olup8q4p5maqdhpcs1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.instantGram"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
