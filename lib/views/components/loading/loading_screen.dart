@@ -2,8 +2,13 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import 'package:instant_gram/state/views/components/constants/loading/loading_screen_controller.dart';
-import 'package:instant_gram/state/views/components/constants/strings.dart';
+import 'package:instant_gram/views/components/loading/loading_screen_controller.dart';
+import 'package:instant_gram/views/components/constants/strings.dart';
+import 'dart:developer' as devtools show log;
+
+extension Log on Object {
+  void log() => devtools.log(toString());
+}
 
 class LoadingScreen {
   LoadingScreen._sharedInstance();
@@ -36,10 +41,11 @@ class LoadingScreen {
     // }
     final texrController = StreamController<String>();
     texrController.add(text);
+
     final renderBox = context.findRenderObject() as RenderBox;
     // final size = renderBox.size;
-    final size = MediaQuery.of(context).size;
-    print("size is $size");
+    final size = renderBox.size;
+    size.log();
     final overlay = OverlayEntry(builder: (context) {
       return Material(
         color: Colors.black.withAlpha(150),
@@ -54,20 +60,35 @@ class LoadingScreen {
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
             ),
-            child: const Padding(
-              padding: EdgeInsets.all(8.0),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
               child: SingleChildScrollView(
                 child: Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
-                      CircularProgressIndicator(),
-                      SizedBox(
+                      const CircularProgressIndicator(),
+                      const SizedBox(
                         height: 10,
                       ),
+                      StreamBuilder<String>(
+                          stream: texrController.stream,
+                          builder: (context, snapshot) {
+                            if (snapshot.hasData) {
+                              return Text(
+                                snapshot.requireData,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(color: Colors.black),
+                              );
+                            } else {
+                              return Container();
+                            }
+                          })
                     ]),
               ),
             ),
