@@ -7,6 +7,7 @@ import 'package:instant_gram/state/auth/providers/is_logged_in_provider.dart';
 import 'package:instant_gram/state/providers/is_loading_provider.dart';
 import 'package:instant_gram/views/components/loading/loading_screen.dart';
 import 'package:instant_gram/views/login/login_view.dart';
+import 'package:instant_gram/views/main/main_view.dart';
 
 import 'firebase_options.dart';
 import 'dart:developer' as devtools show log;
@@ -60,27 +61,5 @@ class App extends StatelessWidget {
             }
           },
         ));
-  }
-}
-
-class MainView extends StatelessWidget {
-  const MainView({Key? key}) : super(key: key);
-
-  @override
-  Widget build(
-    BuildContext context,
-  ) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Main View'),
-        ),
-        body: Consumer(builder: (context, ref, child) {
-          return TextButton(
-            onPressed: () async {
-              ref.read(authStateProvider.notifier).logOut();
-            },
-            child: const Text('loggout'),
-          );
-        }));
   }
 }
