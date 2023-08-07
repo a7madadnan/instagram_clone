@@ -46,6 +46,7 @@ class LoadingScreen {
     // final size = renderBox.size;
     final size = renderBox.size;
     size.log();
+    
     final overlay = OverlayEntry(builder: (context) {
       return Material(
         color: Colors.black.withAlpha(150),

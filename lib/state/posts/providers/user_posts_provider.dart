@@ -1,7 +1,5 @@
 import 'dart:async';
 
-
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instant_gram/state/auth/providers/user_id_provider.dart';
@@ -34,14 +32,17 @@ final userPostsProvider = StreamProvider.autoDispose<Iterable<Post>>(
       final documents = snapShot.docs;
       final posts = documents
           .where(
-            (doc) => !doc.metadata.hasPendingWrites,
-          )
+        (doc) => !doc.metadata.hasPendingWrites,
+      )
           .map(
-            (doc) => Post(
-              postId: doc.id,
-              json: doc.data(),
-            ),
+        (doc) {
+          print(doc.data());
+          return Post(
+            postId: doc.id,
+            json: doc.data(),
           );
+        },
+      );
       controller.sink.add(posts);
     });
     ref.onDispose(() {

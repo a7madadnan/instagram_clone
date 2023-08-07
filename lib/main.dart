@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
-
-import 'package:instant_gram/state/auth/providers/auth_state_provider.dart';
 import 'package:instant_gram/state/auth/providers/is_logged_in_provider.dart';
 import 'package:instant_gram/state/providers/is_loading_provider.dart';
 import 'package:instant_gram/views/components/loading/loading_screen.dart';
