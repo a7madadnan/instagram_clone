@@ -21,3 +21,4 @@ enum PostSetting {
     required this.storageKey,
   });
 }
+

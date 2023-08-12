@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instant_gram/state/auth/providers/user_id_provider.dart';
@@ -36,7 +35,6 @@ final userPostsProvider = StreamProvider.autoDispose<Iterable<Post>>(
       )
           .map(
         (doc) {
-          print(doc.data());
           return Post(
             postId: doc.id,
             json: doc.data(),
