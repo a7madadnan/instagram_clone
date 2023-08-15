@@ -9,6 +9,7 @@ import 'package:instant_gram/views/components/dialogs/alert_dialog_model.dart';
 import 'package:instant_gram/views/components/dialogs/logout_dialog.dart';
 import 'package:instant_gram/views/constants/strings.dart';
 import 'package:instant_gram/views/create_new_post/create_new_post_view.dart';
+import 'package:instant_gram/views/tabs/all_posts/home_view.dart';
 import 'package:instant_gram/views/tabs/search/search_view.dart';
 import 'package:instant_gram/views/tabs/users_post/user_posts_view.dart';
 
@@ -123,7 +124,7 @@ class _MainViewState extends ConsumerState<MainView> {
           children: [
             UserPostView(),
             SearchView(),
-            UserPostView(),
+            HomeView(),
           ],
         ),
       ),
